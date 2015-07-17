@@ -1,0 +1,9 @@
+{
+  "name": "todoApp",
+  "version": "1.0.0",
+  "dependencies": {
+    "ejs": "^2.3.3",
+    "express": "latest",
+    "gulp": "latest"
+  }
+}
