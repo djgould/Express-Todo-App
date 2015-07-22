@@ -1,0 +1,88 @@
+@import "bourbon";
+@import "neat";
+
+@import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
+
+*,*:before,*:after {
+  box-sizing: border-box;
+ }
+
+form {
+	margin: 0;
+}
+
+li {
+	padding: 0;
+}
+
+body{
+  font-family: 'Glegoo', serif;
+  font-weight: 700;
+}
+
+.container {
+	@include outer-container;
+	text-align: center;
+}
+
+ul {
+	@include border-top-radius(5px);
+	@include border-bottom-radius(5px);
+	@include span-columns(6);
+	@include shift(3);
+	overflow: hidden;
+
+	li {
+		@include fill-parent();
+
+		color: #333;
+		overflow: hidden;
+		background: #f8f8f8;
+		line-height: 4.7;
+		padding-left: 10px;
+		text-align: left;
+
+		p {
+			@include span-columns(9);
+		}
+
+		&:nth-child(odd) {
+			background: #ecf0f1;
+		}
+
+		&:first-child {
+			background: #ecf0f1;
+			border-bottom: 3px solid #fff;
+		}
+
+		.delete {
+			opacity: 0;
+			background: red;
+			float: right;
+			text-align: center;
+			height: 75px;
+			padding: 13px 0;
+			display: inline-block;
+			width: 0;
+			color: #fff;
+			transition: all .2s ease;
+		}
+
+		&:hover .delete {
+			opacity: 1;
+			width: 55px;
+		}
+	}
+}
+
+input {
+	border: none;
+	background: none;
+	font-size: 18px;
+	color: #333;
+	position: relative;
+
+	&:focus {
+		outline: none;
+	}
+}

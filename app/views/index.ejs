@@ -1,9 +1,40 @@
 <html>
 <head>
 		<title><%= title %></title>
+		<link rel="stylesheet" type="text/css" href="/css/animate.css">
+		<link rel="stylesheet" type="text/css" href="/css/font-awesome-4.3.0/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 
-<body>
-	<h1><%= title %></h1>
+<body class="ng-cloak">
+	<div ng-controller="todosController" ng-init="find()" 
+	class="container">
+		<h1>Todo List App</h1>
+		<ul>
+			<li>
+				<form name="todoForm" ng-submit="create()" novalidate>
+
+					<input type="text" ng-model="content" placeholder="Add a todo">
+
+				</form>
+			<li ng-repeat="todo in todos">
+				<input type="text" ng-model="todo.content" ng-enter="update(todo)">
+				<a ng-click="delete(todo)" class="delete">
+					<i class="fa fa-trash-o fa-3x"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="/js/todos/todos.client.modules.js"></script>
+	<script type="text/javascript" src="/js/todos/controllers/todos.client.controller.js">
+	</script>
+	<script type="text/javascript" src="/js/todos/services/todos.client.services.js"></script>
+	<script type="text/javascript" src="/js/todos/directives/ng-enter.js">
+	</script>
+
+	<script type="text/javascript" src="/js/application.js"></script>
 </body>
 </html>
